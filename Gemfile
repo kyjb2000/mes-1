@@ -23,14 +23,44 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'mysql2', '~> 0.3.18'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+gem 'twitter-bootstrap-rails'
+gem 'font-awesome-rails'
+gem 'momentjs-rails'
+gem 'bootstrap-wysihtml5-rails'
+gem "select2-rails"
+gem 'bootstrap-x-editable-rails'
+gem 'bootsy'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'formtastic'
+gem 'formtastic-bootstrap'
+
+gem 'ransack'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+
+gem "devise"
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'roo'
+
+gem "surveyor"
+
+gem 'daemons'
+gem 'delayed_job_active_record'
+
+
+gem 'activeadmin', '~> 1.0.0.pre1'
+gem 'activeadmin_settings_cached'
+
+gem 'wicked_pdf'
+gem 'axlsx_rails', github: "straydogstudio/axlsx_rails"
+gem "csv_builder"
+
+gem 'whenever'
+gem 'exception_notification'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,4 +74,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
