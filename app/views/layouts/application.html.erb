@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Mes</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <%= render partial: 'layouts/head' %>
+  <body>
 
-<%= yield %>
+    <%= render partial: "layouts/navigation"%>
+    <section id="main">
+      <%= render partial: "layouts/sidebar"%>
+      <%#= render partial: "layouts/search_sidebar"%>
+      <section id="content">
+        <div class="container">
+          <%if content_for?(:content)%>
+            <%= yield(:content)%>
+          <%else%>
+            <%#= flash_messages%>
+            <%= yield %>
+          <%end%>
+        </div>
+      </section>
 
-</body>
+    <%= render partial: "layouts/footer"%>
+  </body>
 </html>

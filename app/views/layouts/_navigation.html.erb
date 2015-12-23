@@ -1,0 +1,72 @@
+<header id="header">
+            <ul class="header-inner">
+                <li id="menu-trigger" data-trigger="#sidebar">
+                    <div class="line-wrap">
+                        <div class="line top"></div>
+                        <div class="line center"></div>
+                        <div class="line bottom"></div>
+                    </div>
+                </li>
+
+                <li class="logo hidden-xs">
+                    <a href="/"><%= content_for?(:title) ? yield(:title) : "Mes" %></a>
+                </li>
+
+                <li class="pull-right">
+                <ul class="top-menu">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="tm-notification" href="">
+                          <%# if !@activities.nil? and @activities.any?%>
+                            <i class="tmn-counts" id="notification-count"><%#= @activities.count%></i>
+                          <%#end%>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg pull-right">
+                            <div class="listview" id="notifications">
+                                <div class="lv-header">
+                                    Notifications
+                                </div>
+                                <div class="lv-body">
+                                  <%#if !@activities.nil? and @activities.any?%>
+                                    <%# @activities.each do |activity|%>
+                                      <%#= link_to dashboard_path do%>
+                                        <%#= render partial: "#{activity.actable_type.underscore.pluralize}/activity", locals: {item: activity.actable}%>
+                                      <%#end%>
+                                    <%#end%>
+                                  <%#else%>
+                                    <div class="lv-item">
+                                      You have no new activities.
+                                      <br/><br/>
+                                    </div>
+                                  <%#end%>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="hidden-xs" id="chat-trigger" data-trigger="#chat">
+                        <a class="tm-search" href=""></a>
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="tm-settings" href=""></a>
+                        <ul class="dropdown-menu dm-icon pull-right">
+                          <li>
+                            <%= link_to edit_user_registration_url do%>
+                              <i class="zmdi zmdi-face"></i> My Profile
+                            <%end%>
+                          </li>
+
+
+                          <li>
+                            <%= link_to destroy_user_session_path, :method => :delete do %>
+                            <i class="zmdi zmdi-open-in-new"></i> Log out
+                            <%end%>
+                          </li>
+                        </ul>
+                    </li>
+                  </ul>
+
+            <!-- Top Search Content -->
+            <div id="top-search-wrap">
+                <input type="text">
+                <i id="top-search-close">×</i>
+            </div>
+        </li></ul></header>
