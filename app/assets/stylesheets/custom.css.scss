@@ -1,0 +1,227 @@
+body.login-content{
+  padding-top: 0px;
+  #l-login, #l-forget-password{
+    margin-top: 90px;
+  }
+}
+
+div.card div.listview div.lv-body div.lv-item.media.form:hover{
+  background-color: white;
+}
+
+div#calendar{
+  div.fc-toolbar{
+    height: 50px;
+    padding-top: 8px;
+    background-image: none;
+    div.fc-center{
+      margin-top: 0px;
+    }
+  }
+}
+
+.lv-item ul.actions{
+  float: right;
+}
+
+div.modal.calendar {
+  ul.modal-actions {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  div.modal-body.form{
+    display: none;
+  }
+  div.floatlabel-wrapper input.floatlabel{
+    position: static;
+  }
+}
+
+.list{
+  overflow:hidden
+}
+
+.item-list{
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.lv-btn{
+  padding-top: 10px;
+}
+
+.ltype-pad{
+  padding-right: 25px;
+}
+
+.checkbox-pad{
+  padding-top: 18px
+}
+.ltype-list{
+  padding-top: 12px;
+}
+.abbr{
+  padding-bottom: 20px;
+}
+
+.form-inline{
+  width: 45%;
+  padding-right: 10px;
+}
+
+.center{
+  text-align: center;
+}
+
+.dep-btn{
+  background-color:transparent;
+  border: none;
+  outline:none;
+}
+.pad-top{
+  padding-top: 15px;
+}
+.lv-leave-type{
+  width: 12%;
+}
+
+div .fg-line small.has-error{
+  color: #FF0000
+}
+
+.error{
+  color: #FF0000
+}
+
+.lv-item.media{
+  &.normal:hover{
+    /**.listview.lv-lg .lv-item:hover**/
+    background-color: #FFF;
+  }
+  &.active{
+    background-color: #4285F4;
+    a{
+      color: white;
+    }
+  }
+}
+
+table.table{
+  .form-group{
+    margin-bottom: 0px;
+    input{
+      padding-left: 10px;
+    }
+  }
+  table.table{
+    td{
+      vertical-align: middle;
+    }
+    .form-group{
+      margin-bottom: 0px;
+      input{
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+form.inline{
+  border-bottom: 1px solid #D7D7D7;
+  padding: 10px;
+  .form-group{
+    margin-bottom: 15px;
+  }
+}
+
+.dep-btn{
+  span.text{
+    display: block;
+    float: right;
+    height: 26px;
+    padding-top: 5px;
+    padding-left: 5px;
+  }
+}
+
+table.table-balances{
+  .balance-value{
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+.form-group{
+  margin-bottom: 18px;
+}
+
+.form-group .btn-group.bootstrap-select.form-control{
+  border: 0px;
+  .cmnt-left{
+    background: #4285F4;
+    color: white
+  }
+}
+
+.cmnt-right{
+  background: #eee;
+}
+
+.added-pckage{
+  background-color: #4CAF50;
+  color: white
+}
+
+.profile-view .pv-header.claims {
+  background-image: image-url('claims.png');
+}
+
+.profile-view .pv-header.leaves {
+  background-image: image-url('leaves.png');
+}
+
+.profile-view .pv-header.payroll {
+  background-image: image-url('payroll.png');
+}
+
+.modal .modal-body.normal{
+  padding: 0px;
+}
+
+.recipients{
+  margin: 10px;
+  .bootstrap-select{
+    border: 0px;
+  }
+}
+
+.comment-list{
+  height: 350px;
+  overflow-y: auto;
+}
+
+#comment_modal{
+  .listview.lv-message{
+    height: 530px;
+  }
+  form#new_comment{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+
+.user-popup{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#chat .tab-content{
+  padding: 0px;
+}
+
+hr.shrunk{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}

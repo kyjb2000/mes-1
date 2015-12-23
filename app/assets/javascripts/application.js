@@ -10,7 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+
+//= require vendors/bower_components/jquery/dist/jquery.min.js
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require vendors/bower_components/bootstrap/dist/js/bootstrap.min.js
+//= require vendors/bower_components/Waves/dist/waves.min.js
+//= require vendors/bootstrap-growl/bootstrap-growl.min.js
+//= require vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js
+//= require vendors/bower_components/moment/min/moment.min.js
+//= require vendors/bower_components/fullcalendar/dist/fullcalendar.min.js
+//= require vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js
+//= require vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.js
+//= require vendors/bower_components/nouislider/distribute/jquery.nouislider.all.min.js
+//= require vendors/bower_components/summernote/dist/summernote.min.js
+//= require vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js
+//= require vendors/bower_components/typeahead.js/dist/typeahead.bundle.min.js
+//= require vendors/bootstrap-growl/bootstrap-growl.min.js

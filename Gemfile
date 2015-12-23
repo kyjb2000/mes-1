@@ -46,14 +46,14 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'roo'
 
-gem "surveyor"
+gem 'surveyor', :github => "NUBIC/surveyor", :branch => "master"
 
 gem 'daemons'
 gem 'delayed_job_active_record'
 
 
-gem 'activeadmin', '~> 1.0.0.pre1'
-gem 'activeadmin_settings_cached'
+#gem 'activeadmin', '~> 1.0.0.pre1'
+#gem 'activeadmin_settings_cached'
 
 gem 'wicked_pdf'
 gem 'axlsx_rails', github: "straydogstudio/axlsx_rails"
