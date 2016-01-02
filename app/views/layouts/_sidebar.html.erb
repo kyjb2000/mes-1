@@ -1,0 +1,77 @@
+<aside id="sidebar">
+  <div class="sidebar-inner c-overflow" tabindex="1" style="overflow: hidden; outline: none;">
+    <div class="profile-menu toggled">
+      <a href="">
+          <div class="profile-pic">
+            <div style="height:52px;"></div>
+          </div>
+
+          <div class="profile-info">
+              <%= current_user.name%>
+
+          </div>
+      </a>
+  </div>
+
+    <ul class="main-menu">
+
+          <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "dashboard"%>">
+            <%#= link_to dashboard_url do%>
+              <i class="zmdi zmdi-home"></i> Home
+            <%#end%>
+          </li>
+          <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "team"%>">
+            <%#= link_to dashboard_team_url do%>
+              <i class="zmdi zmdi-accounts-alt"></i> Team
+            <%#end%>
+          </li>
+
+          <li class="sub-menu
+            <%#= "active" if ["grades", "departments", "leave_types"].include? controller.controller_name or (controller.controller_name == "users" and !["dashboard", "team"].include? controller.action_name)%>
+          ">
+              <a href=""><i class="zmdi zmdi-widgets"></i> Administration</a>
+              <ul>
+                <li>
+                  <%# if n?"can_manage_account"%>
+                    <%#= link_to "Account", accounts_url, class: ("active" if controller.controller_name == "accounts")%>
+                  <%#end%>
+                </li>
+
+                <li>
+                  <%# if n?"can_edit_account_information"%>
+                    <%#= link_to "Edit Account",  edit_account_url(current_user.account), class: ("active" if controller.controller_name == "accounts")%>
+                  <%#end%>
+                </li>
+
+                <li>
+                   <%# if n?"can_manage_grades"%>
+                      <%#= link_to "Grades", grades_url, class: ("active" if controller.controller_name == "grades")%>
+                   <%#end%>
+                 </li>
+
+                <li>
+                  <%# if n?"can_manage_departments"%>
+                    <%#= link_to "Departments", departments_url, class: ("active" if controller.controller_name == "departments")%>
+                  <%#end%>
+                </li>
+
+                <li>
+                  <%# if n?"can_manage_leave_types"%>
+                    <%#= link_to "Leave Types", leave_types_url, class: ("active" if controller.controller_name == "leave_types")%>
+                  <%#end%>
+                </li>
+
+                <li>
+                  <%# if n?"can_manage_users"%>
+                    <%#= link_to "Users", users_url, class: ("active" if controller.controller_name == "users" and !["dashboard", "team"].include? controller.action_name)%></li>
+                  <%#end%>
+                </li>
+                <%# if n?"can_manage_users"%>
+                  <li><%#= link_to "Roles", roles_url, class: ("active" if controller.controller_name == "roles")%></li>
+                <%#end%>
+              </ul>
+          </li>
+
+      </ul>
+  </div>
+</aside>
