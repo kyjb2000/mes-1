@@ -8,9 +8,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users
+
   unauthenticated do
   devise_scope :user do
     root to: "devise/sessions#new", :as => "unauthenticated"
   end
-end
+ end
 end

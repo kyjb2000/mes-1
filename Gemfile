@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'mysql2', '~> 0.3.18'
 
+gem 'sprockets-rails', '3.0.0'
+
 gem 'twitter-bootstrap-rails'
 gem 'font-awesome-rails'
 gem 'momentjs-rails'
