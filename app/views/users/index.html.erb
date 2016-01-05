@@ -7,7 +7,13 @@
   <div class="pm-overview c-overflow">
     <div class="pmo-pic">
       <div class="p-relative">
+        <button type="Button" class="pmop-edit" data-toggle="modal" data-target="#myModal">
+          <i class="zmdi zmdi-camera"></i>
+          <span class="hidden-xs">Update Profile Picture</span>
+        </button>
+        <%#= render partial: 'avatar' %>
         <%= image_tag('profile.jpg') %>
+
       </div>
     </div>
 
@@ -175,6 +181,7 @@
 
 <%= content_for :javascript do %>
 <script type="text/javascript">
+
 $( "#edit_button" ).click(function() {
   $("#edit_user").html('<%= j render partial: "users/form" %>');
 });

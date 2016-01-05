@@ -25,5 +25,4 @@
 //= require vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js
 //= require vendors/bower_components/typeahead.js/dist/typeahead.bundle.min.js
 //= require vendors/bootstrap-growl/bootstrap-growl.min.js
-//= require custom.js
 //= require_tree .
