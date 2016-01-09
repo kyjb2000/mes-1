@@ -1,6 +1,16 @@
-<h1>Editing User</h1>
+<div class="block-header">
+  <h2>Edit Profile</h2>
+</div>
 
-<%= render 'form' %>
+<div class="card">
+  <div class="listview lv-bordered lv-lg">
+    <div class="lv-body">
+      <div class="lv-item media form">
+        <%= render partial: "form"%>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Show', @user %> |
+
 <%= link_to 'Back', users_path %>

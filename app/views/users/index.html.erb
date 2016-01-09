@@ -7,24 +7,21 @@
   <div class="pm-overview c-overflow">
     <div class="pmo-pic">
       <div class="p-relative">
-        <button type="Button" class="pmop-edit" data-toggle="modal" data-target="#myModal">
+        <a type="Button" class="pmop-edit" data-toggle="modal" data-target="#myModal">
           <i class="zmdi zmdi-camera"></i>
           <span class="hidden-xs">Update Profile Picture</span>
-        </button>
-        <%#= render partial: 'avatar' %>
+        </a>
+        <%= render partial: 'avatar' %>
         <%= image_tag('profile.jpg') %>
-
       </div>
     </div>
 
+
     <div class="pmo-block pmo-contact hidden-xs">
         <h2>Contact</h2>
-
         <ul>
-            <li><i class="zmdi zmdi-phone"></i> {{ pctrl.mobileNumber }}</li>
-            <li><i class="zmdi zmdi-email"></i> {{ pctrl.emailAddress }}</li>
-            <li><i class="zmdi zmdi-facebook-box"></i> {{ pctrl.skype }}</li>
-            <li><i class="zmdi zmdi-twitter"></i> {{ pctrl.twitter }} (twitter.com/malinda)</li>
+            <li><i class="zmdi zmdi-phone"></i> <%= current_user.phone_number %></li>
+            <li><i class="zmdi zmdi-email"></i> <%= current_user.email%></li>
             <li>
                 <i class="zmdi zmdi-pin"></i>
                 <address class="m-b-0">
@@ -40,37 +37,12 @@
   <div class="pm-body clearfix">
     <div class="pmb-block">
         <div class="pmbb-header">
-            <h2><i class="zmdi zmdi-equalizer m-r-5"></i> Summary</h2>
-            <a type="button" name="button" id="edit_button">Edit</a>
-
-            <ul class="actions" data-ng-if="pctrl.editSummary === 0">
-                <li class="dropdown" dropdown>
-                    <a href="" dropdown-toggle>
-                        <i class="zmdi zmdi-more-vert"></i>
-                    </a>
-
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li>
-                            <a data-ng-click="pctrl.editSummary = 1" href="">Edit</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <h2><i class="zmdi zmdi-equalizer m-r-5"></i>Summary</h2>
         </div>
         <div class="pmbb-body p-l-30">
             <div class="pmbb-view" data-ng-if="pctrl.editSummary === 0">
               <%= current_user.description %>
             </div>
-
-            <form data-ng-submit="pctrl.submit('profileSummary', 'Profile Summary')" class="pmbb-edit" data-ng-if="pctrl.editSummary === 1">
-                <div class="fg-line">
-                    <textarea data-ng-model="pctrl.profileSummary" class="form-control" rows="5" placeholder="Summary...">Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna, ornare sit amet mollis eu, aliquet ac ligula. Nullam dolor metus, suscipit ac imperdiet nec, consectetur sed ex. Sed cursus porttitor leo.</textarea>
-                </div>
-                <div class="m-t-10">
-                    <button class="btn btn-primary btn-sm" type="submit">Save</button>
-                    <button class="btn btn-link btn-sm" data-ng-click="pctrl.editSummary = 0" >Cancel</button>
-                </div>
-            </form>
         </div>
     </div>
 
@@ -111,10 +83,6 @@
                     <dd><%= current_user.martial_status %></dd>
                 </dl>
             </div>
-
-            <div id="edit_user">
-
-            </div>
         </div>
     </div>
     <div class="pmb-block">
@@ -147,44 +115,32 @@
                 </dl>
             </div>
         </div>
-
-
     </div>
 
-<div class="pmb-block">
-  <div class="pmbb-header">
-      <h2><i class="zmdi zmdi-phone m-r-5"></i> Update Information</h2>
+    <div class="pmb-block">
+      <div class="pmbb-header">
+          <h2><i class="zmdi zmdi-phone m-r-5"></i> Update Information</h2>
 
-      <ul class="actions" data-ng-if="pctrl.editContact === 0">
-          <li class="dropdown" dropdown>
-              <a href="" dropdown-toggle>
-                  <i class="zmdi zmdi-more-vert"></i>
-              </a>
+          <ul class="actions" data-ng-if="pctrl.editContact === 0">
+              <li class="dropdown" dropdown>
+                  <a href="" dropdown-toggle>
+                      <i class="zmdi zmdi-more-vert"></i>
+                  </a>
 
-              <ul class="dropdown-menu dropdown-menu-right">
-                  <li>
-                      <a data-ng-click="pctrl.editContact = 1" href="">Edit</a>
-                  </li>
-              </ul>
-          </li>
-      </ul>
-  </div>
-</div>
-    <div class="pmbb-body p-l-30">
-      <div class="pmbb-view">
-        <%= render partial: 'form' %>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                      <li>
+                          <a data-ng-click="pctrl.editContact = 1" href="">Edit</a>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
 
+      <div class="pmbb-body p-l-30">
+        <div class="pmbb-view">
+          <%= render partial: 'form' %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<%= content_for :javascript do %>
-<script type="text/javascript">
-
-$( "#edit_button" ).click(function() {
-  $("#edit_user").html('<%= j render partial: "users/form" %>');
-});
-
-</script>
-<%end%>

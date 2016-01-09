@@ -15,33 +15,33 @@
 
     <ul class="main-menu">
 
-          <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "dashboard"%>">
-            <%#= link_to dashboard_url do%>
-              <i class="zmdi zmdi-home"></i> Home
-            <%#end%>
-          </li>
-          <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "team"%>">
-            <%#= link_to dashboard_team_url do%>
-              <i class="zmdi zmdi-accounts-alt"></i> Team
-            <%#end%>
-          </li>
+      <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "dashboard"%>">
+        <%= link_to dashboard_url do%>
+          <i class="zmdi zmdi-home"></i> Home
+        <%end%>
+      </li>
 
-          <li class="sub-menu
-            <%#= "active" if ["grades", "departments", "leave_types"].include? controller.controller_name or (controller.controller_name == "users" and !["dashboard", "team"].include? controller.action_name)%>
-          ">
+    <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "index"%>">
+      <%= link_to edit_user_url(id: current_user) do%>
+        <i class="zmdi zmdi-settings zmdi-hc-fw "></i> Settings
+      <%end%>
+    </li>
+
+    <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "index"%>">
+      <%= link_to edit_user_url(id: current_user) do%>
+        <i class="zmdi zmdi-settings zmdi-hc-fw "></i> My Surveys
+      <%end%>
+    </li>
+          <li class="sub-menu">
               <a href=""><i class="zmdi zmdi-widgets"></i> Administration</a>
               <ul>
                 <li>
-                  <%# if n?"can_manage_account"%>
-                    <%#= link_to "Account", accounts_url, class: ("active" if controller.controller_name == "accounts")%>
-                  <%#end%>
+                  <% if current_user.user_type=="admin"%>
+                    <%= link_to "Account", users_url, class: ("active" if controller.controller_name == "accounts")%>
+                  <%end%>
                 </li>
 
-                <li>
-                  <%# if n?"can_edit_account_information"%>
-                    <%#= link_to "Edit Account",  edit_account_url(current_user.account), class: ("active" if controller.controller_name == "accounts")%>
-                  <%#end%>
-                </li>
+
 
                 <li>
                    <%# if n?"can_manage_grades"%>
@@ -67,7 +67,7 @@
                   <%#end%>
                 </li>
                 <%# if n?"can_manage_users"%>
-                  <li><%#= link_to "Roles", roles_url, class: ("active" if controller.controller_name == "roles")%></li>
+                  <li>aaa<%#= link_to "Roles", roles_url, class: ("active" if controller.controller_name == "roles")%></li>
                 <%#end%>
               </ul>
           </li>
