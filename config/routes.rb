@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "users#dashboard"
   resources :users
-
+  resources :surveys
+  resources :attempts
   unauthenticated do
   devise_scope :user do
     root to: "devise/sessions#new", :as => "unauthenticated"

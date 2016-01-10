@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110131312) do
+ActiveRecord::Schema.define(version: 20160110143601) do
 
   create_table "survey_answers", force: :cascade do |t|
     t.integer  "attempt_id",  limit: 4
