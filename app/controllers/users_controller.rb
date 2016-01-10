@@ -14,6 +14,15 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if current_user.id != @user.id
+      respond_to do |format|
+      format.html { redirect_to users_path }
+      end
+    else
+      respond_to do |format|
+      format.html { redirect_to users_path }
+      end
+    end
   end
 
   # GET /users/new
@@ -23,6 +32,12 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if current_user.id != @user.id
+      respond_to do |format|
+      format.html { redirect_to edit_user_path(id: current_user) }
+    end
+    else
+    end
   end
 
   # POST /users
