@@ -1,16 +1,36 @@
-<div class="questionnaires_<%= action_name %>">
-  <h1>
-      Surveys Index
-  </h1>
-  <hr>
-  <%= link_to "New Survey", new_survey %>
+<p id="notice"><%= notice %></p>
 
-  <ul>
-    <% @surveys.each do |survey| %>
-      <li>
-        <%= link_to survey.name, edit_survey(survey) %>
-      </li>
-    <% end -%>
-  </ul>
+<div class="block-header">
+  <h2>Surveys</h2>
+</div>
 
+<div class="card">
+  <div class="listview lv-bordered lv-lg">
+    <div class="lv-header-alt clearfix">
+      <h2 class="lvh-label hidden-xs">Surveys</h2>
+      <div class="lvh-search" style="display: none;">
+        <%#= search_form_for @surveys do |f|%>
+          <%#= f.text_field :name, placeholder: "Search", class: "lvhs-input"%>
+          <i class="lvh-search-close">×</i>
+        <%#end%>
+      </div>
+
+      <ul class="lv-actions actions">
+        <li>
+          <a href="" class="lvh-search-trigger">
+            <i class="zmdi zmdi-search"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="lv-body">
+      <% @surveys.each do |survey| %>
+        <div class="lv-item media">
+          <div class="lv-item media list">
+            <%= link_to survey.name, edit_survey(survey) %>
+          </div>
+        </div>
+      <% end -%>
+    </div>
 </div>

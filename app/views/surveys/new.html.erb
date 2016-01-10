@@ -1,2 +1,13 @@
-<h2>New Survey</h2>
-<%= render 'form' %>
+<div class="block-header">
+  <h2>New Survey</h2>
+</div>
+
+<div class="card">
+  <div class="listview lv-bordered lv-lg">
+    <div class="lv-body">
+      <div class="lv-item media form">
+        <%= render partial: "form"%>
+      </div>
+    </div>
+  </div>
+</div>

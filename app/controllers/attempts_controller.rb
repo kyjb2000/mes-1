@@ -25,6 +25,10 @@ class AttemptsController < ApplicationController
     end
   end
 
+  def show
+    @participant = current_user
+  end
+
   private
 
   def load_active_survey
