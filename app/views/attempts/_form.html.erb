@@ -1,21 +1,30 @@
-<h1> <%= @survey.name %></h1>
-<%= form_for(@attempt, :url => attempt_scope(@attempt)) do |f| %>
-  <%= f.fields_for :answers do |builder| %>
-    <ul>
-      <% @survey.questions.each_with_index do |question, index| %>
-        <li>
-          <p><%= question.text %></p>
-          <% if !params[:q].nil? %>
-            <%= f.hidden_field :id, value: params[:q][:survey_key_cont] %>
-          <% end %>
-          <%= hidden_field_tag "survey_attempt[answers_attributes][#{index}][question_id]", question.id %>
-          <% question.options.each do |option| %>
-            <%= radio_button_tag "survey_attempt[answers_attributes][#{index}][option_id][]", option.id %>
-            <%= option.text %> <br/ >
+<div class="card">
+  <div class="listview lv-bordered lv-lg">
+    <div class="lv-body">
+      <div class="lv-item media form">
+        <h1> <%= @survey.name %></h1>
+        <strong><%= @survey.description %></strong>
+        <%= form_for(@attempt, :url => attempt_scope(@attempt)) do |f| %>
+          <%= f.fields_for :answers do |builder| %>
+            <ul>
+              <% @survey.questions.each_with_index do |question, index| %>
+                <li>
+                  <p><%= question.text %></p>
+                  <% if !params[:q].nil? %>
+                    <%= f.hidden_field :id, value: params[:q][:survey_key_cont] %>
+                  <% end %>
+                  <%= hidden_field_tag "survey_attempt[answers_attributes][#{index}][question_id]", question.id %>
+                  <% question.options.each do |option| %>
+                    <%= radio_button_tag "survey_attempt[answers_attributes][#{index}][option_id][]", option.id %>
+                    <%= option.text %> <br/ >
+                  <% end -%>
+                </li>
+              <% end -%>
+            </ul>
           <% end -%>
-        </li>
-      <% end -%>
-    </ul>
-  <% end -%>
-  <%= f.submit "Submit" %>
-<% end -%>
+          <%= f.submit "Submit" %>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+</div>
