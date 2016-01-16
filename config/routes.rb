@@ -8,10 +8,15 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/dashboard", to: "users#dashboard"
+  get "/dashboard", to: "attempts#dashboard"
   resources :users
   resources :surveys
-  resources :attempts
+  resources :attempts do
+    collection do
+      get :dashboard
+      post :dashboard
+    end
+  end
   unauthenticated do
   devise_scope :user do
     root to: "devise/sessions#new", :as => "unauthenticated"

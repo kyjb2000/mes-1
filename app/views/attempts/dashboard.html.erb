@@ -1,0 +1,18 @@
+<% if @surve_results.nil? %>
+<%= notice %>
+<% end %>
+<div class="card">
+  <div class="listview lv-bordered lv-lg">
+    <div class="lv-body">
+      <div class="lv-item media form">
+  <%= search_form_for @q, url: new_attempt_path(id: params[:q]) do |f| %>
+  <div class="form-group">
+    <div class="fg-line">
+      <%= f.search_field :survey_key_cont, class: 'form-control', placeholder: "Enter Key" %>
+    </div>
+  </div>
+  <% end %>
+  <button class="btn btn-primary btn-lg" type="submit" form="survey/survey_search" value="Submit">Search</button>
+
+</div>
+</div></div></div>

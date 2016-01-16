@@ -5,21 +5,49 @@ class AttemptsController < ApplicationController
   before_filter :load_active_survey
   before_filter :normalize_attempts_data, :only => :create
 
+
+  def index
+    #@survey = Survey::Survey.ransack(params[:q])
+
+  #  @survey_rsults = @survey.result
+    #puts '###', @survey_rsults.count
+    key = params[:q][:survey_key_cont]
+    puts '##', key
+    @survey_rsults = Survey::Survey.where(survey_key: key)
+  end
+
   def new
     @participant = current_user # you have to decide what to do here
+    puts 'params##', params[:q]
 
-    unless @survey.nil?
-      @attempt = @survey.attempts.new
-      @attempt.answers.build
+      unless @survey.nil?
+        @attempt = @survey.attempts.new
+        @attempt.answers.build
+      end
+      
+      if @survey.nil?
+         redirect_to dashboard_attempts_path, notice: 'Survey not found!'
+      end
+  end
+
+  def dashboard
+    @q = Survey::Survey.ransack(params[:q])
+    @survey_results = @q.result
+
+    if @survey_results.nil?
+     redirect_to dashboard_attempts_path, notice: 'Survey not found!'
     end
   end
 
   def create
+
+    @survey = Survey::Survey.where(survey_key: params[:survey_attempt][:id]).first
+    @participant = current_user
     @attempt = @survey.attempts.new(attempt_params)
     @attempt.participant = current_user
 
     if @attempt.valid? && @attempt.save
-      redirect_to view_context.new_attempt, alert: I18n.t("attempts_controller.#{action_name}")
+      redirect_to dashboard_attempts_path#view_context.new_attempt, alert: I18n.t("attempts_controller.#{action_name}")
     else
       render :action => :new
     end
@@ -32,7 +60,14 @@ class AttemptsController < ApplicationController
   private
 
   def load_active_survey
-    @survey =  Survey::Survey.active.first
+  #  @survey =  Survey::Survey.active.first
+  puts 'params##', params[:q]
+  if !params[:q].nil?
+    key = params[:q][:survey_key_cont]
+    puts '##', key
+  @survey = Survey::Survey.where(survey_key: params[:q][:survey_key_cont]).first
+end
+  #  @survey = Survey::Survey.where(user_id: current_user.id).first
   end
 
   def normalize_attempts_data

@@ -3,7 +3,7 @@ class SurveysController < ApplicationController
   before_filter :load_survey, :only => [:show, :edit, :update]
 
   def index
-    @surveys = Survey::Survey.all
+    @surveys = Survey::Survey.where(user_id: current_user.id)
   end
 
   def new
@@ -12,7 +12,12 @@ class SurveysController < ApplicationController
 
   def create
     @survey = Survey::Survey.new(survey_params)
+    @survey.user_id = current_user.id
+
     if @survey.valid? && @survey.save
+      @survey.survey_key = @survey.id.to_s + current_user.id.to_s + rand.to_s[2..5]
+      @survey.save
+      puts 'Testting###',   @survey.survey_key
       default_redirect
     else
       render :action => :new
