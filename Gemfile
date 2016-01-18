@@ -40,8 +40,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'roo'
 
-gem 'surveyor', :github => "NUBIC/surveyor", :branch => "master"
-
 gem 'daemons'
 gem 'delayed_job_active_record'
 

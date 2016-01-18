@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :surveys
   devise_for :users, controllers: {registrations: 'registrations'}
 
   authenticated :user do
