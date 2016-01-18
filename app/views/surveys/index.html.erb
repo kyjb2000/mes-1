@@ -1,25 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Surveys</h1>
+<div class="block-header">
+  <h2>Surveys</h2>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="card">
+  <div class="listview lv-bordered lv-lg">
+    <div class="lv-header-alt clearfix">
+      <h2 class="lvh-label hidden-xs">Surveys</h2>
+      <div class="lvh-search" style="display: none;">
+        <%#= search_form_for @surveys do |f|%>
+          <%#= f.text_field :name, placeholder: "Search", class: "lvhs-input"%>
+          <i class="lvh-search-close">×</i>
+        <%#end%>
+      </div>
+      <div class="pull-right">
+        <%= link_to 'New Survey', new_survey_path, class: 'btn btn-primary' %>
+      </div>
 
-  <tbody>
-    <% @surveys.each do |survey| %>
-      <tr>
-        <td><%= link_to 'Show', survey %></td>
-        <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-        <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <ul class="lv-actions actions">
+        <li>
+          <a href="" class="lvh-search-trigger">
+            <i class="zmdi zmdi-search"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-<br>
-
-<%= link_to 'New Survey', new_survey_path %>
+    <div class="lv-body">
+      <% @surveys.each do |survey| %>
+        <div class="lv-item media">
+          <div class="lv-item media list">
+            <%= link_to survey.title, edit_survey_path(survey) %>
+          </div>
+        </div>
+      <% end -%>
+    </div>
+</div>

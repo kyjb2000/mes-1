@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :surveys
+
   devise_for :users, controllers: {registrations: 'registrations'}
 
   authenticated :user do
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "users#dashboard"
   resources :users
+  resources :surveys
 
   unauthenticated do
   devise_scope :user do
