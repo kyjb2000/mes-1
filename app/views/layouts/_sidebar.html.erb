@@ -26,51 +26,28 @@
       <%end%>
     </li>
 
-    <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "index"%>">
-      <%= link_to edit_user_url(id: current_user) do%>
-        <i class="zmdi zmdi-book zmdi-hc-fw "></i> My Surveys
-      <%end%>
-    </li>
-          <li class="sub-menu">
-              <a href=""><i class="zmdi zmdi-widgets"></i> Administration</a>
-              <ul>
-                <li>
-                  <% if current_user.user_type=="admin"%>
-                    <%= link_to "Account", users_url, class: ("active" if controller.controller_name == "accounts")%>
-                  <%end%>
-                </li>
-
-
-
-                <li>
-                   <%# if n?"can_manage_grades"%>
-                      <%#= link_to "Grades", grades_url, class: ("active" if controller.controller_name == "grades")%>
-                   <%#end%>
-                 </li>
-
-                <li>
-                  <%# if n?"can_manage_departments"%>
-                    <%#= link_to "Departments", departments_url, class: ("active" if controller.controller_name == "departments")%>
-                  <%#end%>
-                </li>
-
-                <li>
-                  <%# if n?"can_manage_leave_types"%>
-                    <%#= link_to "Leave Types", leave_types_url, class: ("active" if controller.controller_name == "leave_types")%>
-                  <%#end%>
-                </li>
-
-                <li>
-                  <%# if n?"can_manage_users"%>
-                    <%#= link_to "Users", users_url, class: ("active" if controller.controller_name == "users" and !["dashboard", "team"].include? controller.action_name)%></li>
-                  <%#end%>
-                </li>
-                <%# if n?"can_manage_users"%>
-                  <li>aaa<%#= link_to "Roles", roles_url, class: ("active" if controller.controller_name == "roles")%></li>
-                <%#end%>
-              </ul>
+    <li class="sub-menu">
+        <a href=""><i class="zmdi zmdi-widgets"></i> Surveys</a>
+        <ul>
+          <li>
+            <% if current_user.user_type=="admin"%>
+              <%= link_to "Account", users_url, class: ("active" if controller.controller_name == "accounts")%>
+            <%end%>
           </li>
 
-      </ul>
+          <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "index"%>">
+            <%= link_to "#" do%>
+              <i class="zmdi zmdi-book zmdi-hc-fw "></i> My Surveys
+            <%end%>
+          </li>
+
+          <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "index"%>">
+            <%= link_to "#" do%>
+              <i class="zmdi zmdi-plus-square zmdi-hc-fw "></i> New Survey
+            <%end%>
+          </li>
+        </ul>
+    </li>
+    </ul>
   </div>
 </aside>
