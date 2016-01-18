@@ -31,7 +31,8 @@
       <% @surveys.each do |survey| %>
         <div class="lv-item media">
           <div class="lv-item media list">
-            <%= link_to survey.title, edit_survey_path(survey) %>
+            <strong><%= link_to survey.title, edit_survey_path(survey) %></strong> <br>
+            <strong>Key: <%= survey.key %></strong>
           </div>
         </div>
       <% end -%>

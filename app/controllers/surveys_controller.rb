@@ -3,7 +3,7 @@ class SurveysController < ApplicationController
 
   # GET /surveys
   def index
-    @surveys = Survey.all
+    @surveys = current_user.surveys
   end
 
   # GET /surveys/1
@@ -25,6 +25,8 @@ class SurveysController < ApplicationController
     @survey.user_id = current_user.id
 
     if @survey.save
+      @survey.key = @survey.id.to_s + current_user.id.to_s + rand.to_s[2..5]
+      @survey.save
       redirect_to @survey, notice: 'Survey was successfully created.'
     else
       render :new
