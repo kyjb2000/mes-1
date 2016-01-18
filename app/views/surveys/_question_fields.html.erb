@@ -1,18 +1,26 @@
 <li style="list-style: none">
   <div class="field">
-    <div class="col-md-5">
+    <div class="col-md-4">
       <div class="form-group">
         <div class="fg-line">
           <%= f.text_field :name, class: 'form-control', placeholder: 'Question Title' %>
         </div>
       </div>
     </div>
-    <div class="col-md-7">
-      <div class="pull-left">
+
+    <div class="col-md-8">
+      <div class="col-md-4 p-t-10">
         <%= f.file_field :video %>
       </div>
-      <div class="pull-right">
+
+      <div class="col-md-4 p-t-10">
         <%= f.file_field :image %>
+      </div>
+
+      <div class="col-md-4 p-t-10">
+        <div class="pull-right">
+          <%= link_to_remove_field "Remove", f %>
+        </div>
       </div>
     </div>
 
@@ -24,7 +32,7 @@
     </ul>
     <div class="col-md-12">
       <%= link_to_add_field "Add option", f, :options %>
-      <%= link_to_remove_field "X", f %>
+
     </div>
     <div class="col-md-12">
       <hr>

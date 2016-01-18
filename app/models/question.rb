@@ -8,4 +8,5 @@ class Question < ActiveRecord::Base
       :reject_if => ->(q) { q[:text].blank? },
       :allow_destroy => true
   mount_uploader :image, ImageUploader
+  mount_uploader :video, VideoUploader
 end
