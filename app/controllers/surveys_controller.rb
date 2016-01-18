@@ -23,7 +23,6 @@ class SurveysController < ApplicationController
   def create
     @survey = Survey.new(survey_params)
     @survey.user_id = current_user.id
-    puts '##', @survey.user_id
 
     if @survey.save
       redirect_to @survey, notice: 'Survey was successfully created.'
@@ -55,6 +54,6 @@ class SurveysController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def survey_params
-      params.require(:survey).permit(:title, :description, questions_attributes: [:name, :image, :video, options_attributes: [:text]])
+      params.require(:survey).permit(:title, :description, questions_attributes: [:name, :image, :video, options_attributes: [:text, :_destroy]])
     end
 end
