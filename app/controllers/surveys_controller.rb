@@ -22,6 +22,8 @@ class SurveysController < ApplicationController
   # POST /surveys
   def create
     @survey = Survey.new(survey_params)
+    @survey.user_id = current_user.id
+    puts '##', @survey.user_id
 
     if @survey.save
       redirect_to @survey, notice: 'Survey was successfully created.'
@@ -32,7 +34,7 @@ class SurveysController < ApplicationController
 
   # PATCH/PUT /surveys/1
   def update
-    if @survey.update(survey_params)
+    if @survey.update_attributes(survey_params)
       redirect_to @survey, notice: 'Survey was successfully updated.'
     else
       render :edit
