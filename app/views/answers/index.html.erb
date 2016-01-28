@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<div class="block-header">
+  <h2>Welcome <%= current_user.name%></h2>
+</div>
+
+<div class="card">
+  <div class="listview lv-bordered lv-lg">
+    <div class="lv-body">
+      <div class="lv-item media form">
+        <%= render partial: 'form', survey: @survey, answer: @answer %>
+      </div>
+    </div>
+  </div>
+</div>

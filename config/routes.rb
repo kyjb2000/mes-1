@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :answers
+  resources :attempts
   devise_for :users, controllers: {registrations: 'registrations'}
 
   authenticated :user do
@@ -11,7 +13,12 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "users#dashboard"
   resources :users
-  resources :surveys
+  resources :surveys do
+    collection do
+      get :browse
+    end
+
+  end
 
   unauthenticated do
   devise_scope :user do

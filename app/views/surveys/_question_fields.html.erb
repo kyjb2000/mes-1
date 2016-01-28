@@ -10,11 +10,11 @@
 
     <div class="col-md-8">
       <div class="col-md-4 p-t-10">
-        <%= f.file_field :video %>
+        video: <%= f.file_field :video %>
       </div>
 
       <div class="col-md-4 p-t-10">
-        <%= f.file_field :image %>
+      image:  <%= f.file_field :image %>
       </div>
 
       <div class="col-md-4 p-t-10">
@@ -32,7 +32,6 @@
     </ul>
     <div class="col-md-12">
       <%= link_to_add_field "Add option", f, :options %>
-
     </div>
     <div class="col-md-12">
       <hr>

@@ -10,6 +10,15 @@ class SurveysController < ApplicationController
   def show
   end
 
+  def browse
+    @q = Survey.ransack(params[:q])
+    @survey_results = @q.result
+    puts'aaa', @survey_results.count
+    if @survey_results.nil?
+     redirect_to browse_surveys_path, notice: 'Survey not found!'
+    end
+  end
+
   # GET /surveys/new
   def new
     @survey = Survey.new
@@ -27,7 +36,7 @@ class SurveysController < ApplicationController
     if @survey.save
       @survey.key = @survey.id.to_s + current_user.id.to_s + rand.to_s[2..5]
       @survey.save
-      redirect_to @survey, notice: 'Survey was successfully created.'
+      redirect_to surveys_path, notice: 'Survey was successfully created.'
     else
       render :new
     end
