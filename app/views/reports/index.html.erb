@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div class="block-header">
+  <h2>My Surveys</h2>
+</div>
+
+<div class="card">
+  <div class="listview lv-bordered lv-lg">
+    <div class="lv-header-alt clearfix">
+      <h2 class="lvh-label hidden-xs">Surveys</h2>
+      <div class="lvh-search" style="display: none;">
+        <%#= search_form_for @surveys do |f|%>
+          <%#= f.text_field :name, placeholder: "Search", class: "lvhs-input"%>
+          <i class="lvh-search-close">×</i>
+        <%#end%>
+      </div>
+      <div class="pull-right">
+        <%= link_to 'New Survey', new_survey_path, class: 'btn btn-primary' %>
+      </div>
+
+      <ul class="lv-actions actions">
+        <li>
+          <a href="" class="lvh-search-trigger">
+            <i class="zmdi zmdi-search"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="lv-body">
+      <% @reports.each do |report| %>
+        <div class="lv-item media">
+          <div class="lv-item media list">
+            <div class="col-md-10">
+              <strong><%= link_to report.title, edit_survey_path(report) %></strong> <br>
+              <strong>Key: <%= report.key %></strong>
+            </div>
+            <div class="col-md-2 pull-right">
+              <%= link_to "View Summary", report_path(id: report.id)  %>
+            </div>
+          </div>
+        </div>
+      <% end -%>
+    </div>
+</div>

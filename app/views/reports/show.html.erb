@@ -1,0 +1,39 @@
+<div class="block-header">
+  <h2><%= @report.title%></h2>
+</div>
+
+<div class="card">
+  <div class="listview lv-bordered lv-lg">
+    <div class="lv-body">
+      <div class="lv-item media form">
+        <table class="table table-bordered" >
+          <tbody>
+          <% @report.questions.each_with_index do |question, q| %>
+            <tr>
+              <td rowspan="3" colspan="6">
+              <strong>  <%= question.name %></strong>
+              </td>
+            </tr>
+            <tr>
+              <% question.options.each do |option|%>
+                <th>
+                  <%= option.text%>
+                </th>
+              <% end %>
+            </tr>
+            <tr>
+              <% question.options.each_with_index do |option, i|%>
+                <td>
+                  <% count_per_question = Answer.where(question_id: question.id, option_id: option.id).count.to_f%>
+                  <%= (count_per_question/Answer.where(question_id: question.id).count.to_f).round(2) * 100%> %
+                </td>
+              <% end %>
+            </tr>
+
+          <%end%>
+        </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
