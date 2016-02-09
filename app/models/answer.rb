@@ -1,6 +1,8 @@
 class Answer < ActiveRecord::Base
 
+  belongs_to :survey_response
   belongs_to :option
   belongs_to :question
-  accepts_nested_attributes_for :option
+
+  validates :question, :option, presence: true
 end

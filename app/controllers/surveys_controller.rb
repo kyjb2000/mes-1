@@ -11,6 +11,14 @@ class SurveysController < ApplicationController
   end
 
   def browse
+
+    if params[:q].present? and params[:q][:key_cont].present?
+      survey = Survey.where(key: params[:q][:key_cont]).first
+      if survey.present?
+        redirect_to new_survey_survey_response_path(survey) and return
+      end
+    end
+
     @q = Survey.ransack(params[:q])
     @survey_results = @q.result
     puts'aaa', @survey_results.count
