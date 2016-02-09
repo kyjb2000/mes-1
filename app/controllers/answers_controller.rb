@@ -1,9 +1,9 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /answers
   def index
-    #@answers = Answer.all
     if !params[:q].nil?
       key = params[:q][:key_cont]
       @survey = Survey.where(key: key).first
@@ -27,13 +27,11 @@ class AnswersController < ApplicationController
 
   # POST /answers
   def create
-
     question_id = params[:answer][:question_id].to_i
     option_id = params[:answer][:option_id].to_i
     @answer = Answer.new
     @answer.question_id = question_id
     @answer.option_id = option_id
-
     if @answer.save
       redirect_to browse_surveys_path, notice: 'Thank you for participating'
     else
@@ -64,6 +62,6 @@ class AnswersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def answer_params
-      params.require(:answer).permit(:title, :description, :question_id, :option_id, :text)
+      params.require(:answer).permit(:title, :description, :question_id, :option_id, :text, :question => [])
     end
 end
