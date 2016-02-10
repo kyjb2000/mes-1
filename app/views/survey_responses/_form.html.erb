@@ -13,39 +13,37 @@
       <table class="table table-hover">
         <tbody>
 
-        <%= f.fields_for :answers do |answer_f| %>
+            <%= f.fields_for :answers do |answer_f| %>
 
-            <% question = answer_f.object.question %>
+                <% question = answer_f.object.question %>
 
-            <tr>
-              <td>
-                <h3><%= question.name %></h3>
+                <tr>
+                  <td>
+                    <h3><%= question.name %></h3>
 
-                <%= answer_f.hidden_field :question_id %>
+                    <%= answer_f.hidden_field :question_id %>
 
-                <%= answer_f.collection_radio_buttons(:option_id, question.options.all, :id, :text) do |radio_f| %>
-                    <div class="radio">
-                      <%= radio_f.label do %>
-                          <%= radio_f.radio_button(class: 'radio') %>
-                          <i class="input-helper"></i>
-                          <%= radio_f.text %>
-                      <% end %>
-                    </div>
-                <% end %>
-              </td>
+                    <%= answer_f.collection_radio_buttons(:option_id, question.options.all, :id, :text) do |radio_f| %>
+                        <div class="radio">
+                          <%= radio_f.label do %>
+                              <%= radio_f.radio_button(class: 'radio') %>
+                              <i class="input-helper"></i>
+                              <%= radio_f.text %>
+                          <% end %>
+                        </div>
+                    <% end %>
+                  </td>
 
-              <td style="padding-left: 100px">
-                <% if !question.video.blank? %>
-                    <%= video_tag(question.video, size: "320x240", controls: true, autobuffer: true) %>
-                <% end %>
-                <% if !question.image.blank? %>
-                    <%= image_tag(question.image_url, style: 'width: 320px; height: 240px') %>
-                <% end %>
-              </td>
-            </tr>
-
-        <% end %>
-
+                  <td style="padding-left: 100px">
+                    <% if !question.video.blank? %>
+                        <%= video_tag(question.video, size: "320x240", controls: true, autobuffer: true) %>
+                    <% end %>
+                    <% if !question.image.blank? %>
+                        <%= image_tag(question.image_url, style: 'width: 320px; height: 240px') %>
+                    <% end %>
+                  </td>
+                </tr>
+            <% end %>
         </tbody>
       </table>
     </div>
@@ -53,4 +51,3 @@
     <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
 
 <% end %>
-
