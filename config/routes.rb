@@ -14,10 +14,13 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#dashboard"
   resources :users
   resources :surveys do
+    resources :survey_responses, only: [ :new, :create ]
     collection do
       get :browse
     end
-
+    member do
+      get :report
+    end
   end
 
   unauthenticated do

@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<% if @survey.present? %>
+
+    <div class="block-header">
+      <h2>Report - <%= @survey.title %></h2>
+    </div>
+
+
+    <div class="card">
+      <div class="listview lv-bordered lv-lg">
+        <div class="lv-header-alt clearfix">
+          <h2 class="lvh-label hidden-xs">  <strong>Total No of Participants: <%= @survey.participants_count %></strong></h2> 
+
+          <div class="pull-right">
+            <%= link_to "Back", surveys_path, class: 'btn btn-primary' %>
+          </div>
+        </div>
+        <div class="lv-body">
+          <div class="lv-item media form">
+
+            <h1><%=@survey.title%></h1>
+            <%= @survey.description %>
+
+            <br/> <br/>
+
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <tbody>
+                  <% @survey.questions.each do |question| %>
+                    <tr>
+                      <td rowspan="4" class="tble-border">
+                        <h4><%= question.name %></h4>
+                      </td>
+                    </tr>
+                    <tr>
+                      <% question.options.each do |option| %>
+                        <th class="tble-border thead bright th-center" colspan="2">
+                          <%= option.text %>
+                        </th>
+                      <% end %>
+                    </tr>
+                    <tr>
+                      <% question.options.each do |option| %>
+                        <th class="tble-border tble-thead">
+                            <small>Percentage</small>
+                        </th>
+                        <th class="bright tble-border tble-thead">
+                          <small>Count</small>
+                        </th>
+                      <% end %>
+                    </tr>
+                    <tr>
+                      <% question.options.each do |option| %>
+                        <td class="tble-border">
+                          <% if option.option_percentage > 50 %>
+                              <b> <small style="color: green"><%= option.option_percentage %>%</small> </b>
+                            <% elsif option.option_percentage == 50%>
+                              <b> <small><%= option.option_percentage %>%</small> </b>
+                            <% else %>
+                              <b> <small style="color: red"><%= option.option_percentage %>%</small> </b>
+                          <% end %>
+                        </td>
+                        <td class="bright tble-border">
+                          <small><%= option.answers_count %></small>
+                        </td>
+                      <% end %>
+                    </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

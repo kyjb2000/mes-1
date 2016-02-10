@@ -5,7 +5,7 @@
   <div class="listview lv-bordered lv-lg">
     <div class="lv-body">
       <div class="lv-item media form">
-        <%= search_form_for @q, url: answers_path(id: params[:q]) do |f| %>
+        <%= search_form_for @q, url: browse_surveys_path(q: params[:q]) do |f| %>
         <div class="form-group">
           <div class="fg-line">
             <%= f.search_field :key_cont, class: 'form-control', placeholder: "Enter Key" %>

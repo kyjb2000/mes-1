@@ -11,6 +11,14 @@ class SurveysController < ApplicationController
   end
 
   def browse
+
+    if params[:q].present? and params[:q][:key_cont].present?
+      survey = Survey.where(key: params[:q][:key_cont]).first
+      if survey.present?
+        redirect_to new_survey_survey_response_path(survey) and return
+      end
+    end
+
     @q = Survey.ransack(params[:q])
     @survey_results = @q.result
     puts'aaa', @survey_results.count
@@ -55,6 +63,10 @@ class SurveysController < ApplicationController
   def destroy
     @survey.destroy
     redirect_to surveys_url, notice: 'Survey was successfully destroyed.'
+  end
+
+  def report
+    @survey = current_user.surveys.includes(questions: [:options]).where(id: params[:id]).first
   end
 
   private
