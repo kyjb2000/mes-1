@@ -14,11 +14,13 @@ class SurveyResponse < ActiveRecord::Base
   protected
 
   def increment_survey_participants
-    survey.increment!(:answers_count)
+    survey.increment!(:participants_count)
   end
 
+
+
   def decrement_survey_participants
-    survey.decrement!(:answers_count)
+    survey.decrement!(:participants_count)
   end
 
 end

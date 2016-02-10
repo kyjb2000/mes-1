@@ -225,3 +225,21 @@ hr.shrunk{
   margin-top: 3px;
   margin-bottom: 3px;
 }
+
+.tble-border{
+  border: solid 1px #ccc
+}
+.bright{
+  border-right: solid 2px #ccc
+}
+
+.thead{
+  color: white;
+  background: rgb(180, 131, 92);
+}
+.tble-thead{
+  background:	#00FFFF
+}
+.th-center{
+  text-align: center;
+}

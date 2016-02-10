@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160210093731) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.integer  "answers_count", limit: 4,   default: 0
+<<<<<<< HEAD
   end
 
   create_table "question_groups", force: :cascade do |t|
@@ -97,6 +98,8 @@ ActiveRecord::Schema.define(version: 20160210093731) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "api_id",                 limit: 255
+=======
+>>>>>>> f4feb1d16599e4c0cc26aaa8712bebfbde00ff25
   end
 
   add_index "question_groups", ["api_id"], name: "uq_question_groups_api_id", unique: true, using: :btree
