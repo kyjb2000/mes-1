@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<% if @survey.present? %>
+
+    <div class="block-header">
+      <h2>Report - <%= @survey.title %></h2>
+    </div>
+
+    <div class="card">
+      <div class="listview lv-bordered lv-lg">
+        <div class="lv-body">
+          <div class="lv-item media form">
+
+            <h1><%=@survey.title%></h1>
+            <%= @survey.description %>
+
+            <h4>Survey Participants: <%= @survey.participants_count %></h4>
+
+            <br/> <br/>
+
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <tbody>
+
+                  <% @survey.questions.each do |question| %>
+
+                    <tr>
+                      <td>
+                        <h3><%= question.name %></h3>
+
+                        <ul class="nav">
+                          <% question.options.each do |option| %>
+                            <li>
+                              <%= option.text %> - <b><%= option.answers_count %> (<%= option.option_percentage %>%)</b>
+                            </li>
+                          <% end %>
+                        </ul>
+
+                      </td>
+
+                      <td style="padding-left: 100px">
+                        <% if !question.video.blank? %>
+                            <%= video_tag(question.video, size: "320x240", controls: true, autobuffer: false) %>
+                        <% end %>
+                        <% if !question.image.blank? %>
+                            <%= image_tag(question.image_url, style: 'width: 320px; height: 240px') %>
+                        <% end %>
+                      </td>
+                    </tr>
+
+                <% end %>
+
+                </tbody>
+              </table>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<% end %>
