@@ -12,11 +12,11 @@ class Answer < ActiveRecord::Base
   protected
 
   def increment_option_answers_count
-    option.increment!(:participants_count)
+    option.increment!(:answers_count)
   end
 
   def decrement_option_answers_count
-    option.decrement!(:participants_count)
+    option.decrement!(:answers_count)
   end
 
 
