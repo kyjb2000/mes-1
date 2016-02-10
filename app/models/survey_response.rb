@@ -8,4 +8,17 @@ class SurveyResponse < ActiveRecord::Base
 
   validates :survey, presence: true
 
+  after_create :increment_survey_participants
+  after_destroy :decrement_survey_participants
+
+  protected
+
+  def increment_survey_participants
+    survey.increment!(:answers_count)
+  end
+
+  def decrement_survey_participants
+    survey.decrement!(:answers_count)
+  end
+
 end

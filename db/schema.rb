@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209190455) do
+ActiveRecord::Schema.define(version: 20160210093731) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id",        limit: 4
@@ -77,10 +77,11 @@ ActiveRecord::Schema.define(version: 20160209190455) do
   end
 
   create_table "options", force: :cascade do |t|
-    t.string   "text",        limit: 255
-    t.integer  "question_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "text",          limit: 255
+    t.integer  "question_id",   limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "answers_count", limit: 4,   default: 0
   end
 
   create_table "question_groups", force: :cascade do |t|
@@ -232,12 +233,13 @@ ActiveRecord::Schema.define(version: 20160209190455) do
   end
 
   create_table "surveys", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "user_id",     limit: 4
-    t.string   "key",         limit: 255
+    t.string   "title",              limit: 255
+    t.string   "description",        limit: 255
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "user_id",            limit: 4
+    t.string   "key",                limit: 255
+    t.integer  "participants_count", limit: 4,   default: 0
   end
 
   add_index "surveys", ["user_id"], name: "index_surveys_on_user_id", using: :btree

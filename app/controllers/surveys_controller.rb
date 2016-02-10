@@ -65,6 +65,10 @@ class SurveysController < ApplicationController
     redirect_to surveys_url, notice: 'Survey was successfully destroyed.'
   end
 
+  def report
+    @survey = current_user.surveys.includes(questions: [:options]).where(id: params[:id]).first
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_survey
