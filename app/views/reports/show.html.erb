@@ -25,7 +25,14 @@
                 <% question.options.each_with_index do |option, i|%>
                   <td style="border: solid 1px grey">
                     <% count_per_question = Answer.where(question_id: question.id, option_id: option.id).count.to_f%>
-                    <%= (count_per_question/Answer.where(question_id: question.id).count.to_f).round(2) * 100%> %
+                    <%average= (count_per_question/Answer.where(question_id: question.id).count.to_d).round(3) * 100%>
+                    <% if average < 50 %>
+                      <span style="color: red"><%=average%> %</span>
+                      <% elsif average==50%>
+                      <%=average%>
+                      <% else %>
+                      <span style="color: green"><%=average%> %</span>
+                    <% end %>
                   </td>
                 <% end %>
               </tr>
