@@ -20,33 +20,12 @@
       <%end%>
     </li>
 
-    <li class="sub-menu">
-        <a href=""><i class="zmdi zmdi-widgets"></i> Surveys</a>
-        <ul>
-          <li>
-            <% if current_user.user_type=="admin"%>
-              <%= link_to "Account", users_url, class: ("active" if controller.controller_name == "accounts")%>
-            <%end%>
-          </li>
-
-          <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "index"%>">
-            <%= link_to surveys_path do%>
-              <i class="zmdi zmdi-book zmdi-hc-fw "></i> My Surveys
-            <%end%>
-          </li>
-
-          <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "index"%>">
-            <%= link_to "#" do%>
-              <i class="zmdi zmdi-plus-square zmdi-hc-fw "></i> New Survey
-            <%end%>
-          </li>
-        </ul>
-    </li>
     <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "index"%>">
-      <%= link_to edit_user_url(id: current_user) do%>
-        <i class="zmdi zmdi-book zmdi-hc-fw "></i> Reports
+      <%= link_to surveys_path do%>
+        <i class="fa fa-book zmdi-hc-fw "></i> My Surveys
       <%end%>
     </li>
+
     <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "index"%>">
       <%= link_to edit_user_url(id: current_user) do%>
         <i class="zmdi zmdi-settings zmdi-hc-fw "></i> Settings
