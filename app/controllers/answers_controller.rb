@@ -7,8 +7,10 @@ class AnswersController < ApplicationController
     if !params[:q].nil?
       key = params[:q][:key_cont]
       @survey = Survey.where(key: key).first
+      if @survey.nil?
+        redirect_to browse_surveys_path
+      end
     end
-
     @answer = Answer.new
   end
 
