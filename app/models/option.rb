@@ -11,7 +11,10 @@ class Option < ActiveRecord::Base
   end
 
   def option_percentage
-    ((answers_count.to_f/question.survey.participants_count.to_f) * 100).to_i
+    if answers_count > 0
+      ((answers_count.to_f/question.survey.participants_count.to_f) * 100).to_i
+    end
+
   end
 
 end

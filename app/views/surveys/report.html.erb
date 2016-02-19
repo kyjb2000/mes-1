@@ -10,7 +10,7 @@
     <div class="card">
       <div class="listview lv-bordered lv-lg">
         <div class="lv-header-alt clearfix">
-          <h2 class="lvh-label hidden-xs">  <strong>Total No of Participants: <%= @survey.participants_count %></strong></h2> 
+          <h2 class="lvh-label hidden-xs">  <strong>Total No of Participants: <%= @survey.participants_count %></strong></h2>
 
           <div class="pull-right">
             <%= link_to "Back", surveys_path, class: 'btn btn-primary' %>
@@ -53,12 +53,14 @@
                     <tr>
                       <% question.options.each do |option| %>
                         <td class="tble-border">
-                          <% if option.option_percentage > 50 %>
-                              <b> <small style="color: green"><%= option.option_percentage %>%</small> </b>
-                            <% elsif option.option_percentage == 50%>
-                              <b> <small><%= option.option_percentage %>%</small> </b>
-                            <% else %>
-                              <b> <small style="color: red"><%= option.option_percentage %>%</small> </b>
+                          <% if !option.option_percentage.nil?  %>
+                            <% if option.option_percentage > 50 %>
+                                <b> <small style="color: green"><%= option.option_percentage %>%</small> </b>
+                              <% elsif option.option_percentage == 50%>
+                                <b> <small><%= option.option_percentage %>%</small> </b>
+                              <% else %>
+                                <b> <small style="color: red"><%= option.option_percentage %>%</small> </b>
+                            <% end %>
                           <% end %>
                         </td>
                         <td class="bright tble-border">

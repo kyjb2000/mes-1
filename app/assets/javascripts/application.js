@@ -26,4 +26,18 @@
 //= require vendors/bower_components/typeahead.js/dist/typeahead.bundle.min.js
 //= require vendors/bootstrap-growl/bootstrap-growl.min.js
 //= require js/functions.js
+
+
+//= require landing/js/ripples.min.js
+//= require landing/js/material.min.js
+//= require landing/js/wow.js
+//= require landing/js/jquery.mmenu.min.all.js
+//= require landing/js/count-to.js
+//= require landing/js/jquery.inview.min.js
+//= require landing/js/classie.js
+//= require landing/js/jquery.nav.js
+//= require landing/js/smooth-on-scroll.js
+//= require landing/js/smooth-scroll.js
+//= require landing/js/main.js
+
 //= require custom

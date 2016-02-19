@@ -1,16 +1,6 @@
 <%= form_for(@survey) do |f| %>
-  <% if @survey.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
 
-      <ul>
-      <% @survey.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render partial: 'shared/errors', object: @survey, as: :object %>
   <div class="field">
     <div class="form-group">
        <div class="fg-line">
@@ -18,7 +8,6 @@
        </div>
     </div>
 
-   <%#= f.select :active, ["true", "false"] %>
  </div>
 
  <div class="form-group">
@@ -26,7 +15,12 @@
      <%= f.text_area :description, placeholder:'Description', class: 'form-control', :size => "100x5" %>
    </div>
  </div>
-
+ <div class="form-group">
+   <div class="fg-line">
+     <label for="">Max allowed participant</label>
+     <%= f.number_field :maximum_participant, placeholder:'Description', class: 'form-control', :size => "100x5" %>
+   </div>
+ </div>
 
  <div class="field">
    <ul>

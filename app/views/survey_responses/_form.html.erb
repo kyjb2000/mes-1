@@ -4,6 +4,10 @@
 
     <%= render partial: 'shared/errors', object: @survey_response, as: :object %>
 
+    <div class="pull-right" id="sticker">
+       <h3 id="time">10:00</h3>
+    </div>
+
     <h1><%=@survey.title%></h1>
     <%= @survey.description %>
 
@@ -19,7 +23,7 @@
 
                 <tr>
                   <td>
-                    <h3><%= question.name %></h3>
+                    <h4><%= question.name %></h4>
 
                     <%= answer_f.hidden_field :question_id %>
 
@@ -36,7 +40,7 @@
 
                   <td style="padding-left: 100px">
                     <% if !question.video.blank? %>
-                        <%= video_tag(question.video, size: "320x240", controls: true, autobuffer: true) %>
+                        <%= video_tag("public/uploads/question/video/17/Top_10_Fastest_Cars_In_The_World_2016_HD__online-video-cutter.com.mp4", size: "320x240", controls: true, autobuffer: false) %>
                     <% end %>
                     <% if !question.image.blank? %>
                         <%= image_tag(question.image_url, style: 'width: 320px; height: 240px') %>
@@ -51,3 +55,31 @@
     <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
 
 <% end %>
+
+<script>
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer === 0) {
+          window.location.href="/surveys"
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 1,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+
+};
+
+
+</script>

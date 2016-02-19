@@ -1,4 +1,4 @@
-body.login-content{
+section.login-content{
   padding-top: 0px;
   #l-login, #l-forget-password{
     margin-top: 90px;
@@ -242,4 +242,16 @@ hr.shrunk{
 }
 .th-center{
   text-align: center;
+}
+
+.bg{
+  background-image: image-url('bg1.jpg');
+}
+
+.bck{
+  background-color: #edecec
+}
+
+.fcolor{
+  color: #fff
 }

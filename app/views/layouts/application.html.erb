@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%= render partial: "layouts/head"%>
-  <body>
+  <body class="bck">
 
     <%= render partial: "layouts/navigation"%>
     <section id="main">
@@ -17,6 +17,12 @@
           <%end%>
         </div>
       </section>
+      <script>
+          $(document).ready(function() {
+              // This command is used to initialize some elements and make them work properly
+              $.material.init();
+          });
+      </script>
     <%= render partial: "layouts/footer"%>
   </body>
 </html>

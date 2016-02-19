@@ -7,6 +7,7 @@ class Survey < ActiveRecord::Base
   accepts_nested_attributes_for :questions,
       :reject_if => ->(q) { q[:name].blank? },
       :allow_destroy => true
+  validates :title, :description, :questions, presence: true
 
   def self.refresh_participants_count
     all.each do |survey|

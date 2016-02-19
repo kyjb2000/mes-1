@@ -1,13 +1,13 @@
 <aside id="sidebar">
   <div class="sidebar-inner c-overflow" tabindex="1" style="overflow: hidden; outline: none;">
     <div class="profile-menu toggled">
-      <a href="">
+      <a href="/users">
           <div class="profile-pic">
             <div style="height:52px;"></div>
           </div>
 
           <div class="profile-info">
-          <%= current_user.name%>
+            <%= current_user.name%>
           </div>
       </a>
   </div>
@@ -20,7 +20,7 @@
       <%end%>
     </li>
 
-    <li class="<%= "active" if controller.controller_name == "users" and controller.action_name == "index"%>">
+    <li class="<%= "active" if controller.controller_name == "surveys" and controller.action_name == "index"%>">
       <%= link_to surveys_path do%>
         <i class="fa fa-book zmdi-hc-fw "></i> My Surveys
       <%end%>

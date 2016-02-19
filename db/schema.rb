@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210093731) do
+ActiveRecord::Schema.define(version: 20160215161320) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id",        limit: 4
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20160210093731) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.integer  "answers_count", limit: 4,   default: 0
-<<<<<<< HEAD
   end
 
   create_table "question_groups", force: :cascade do |t|
@@ -98,8 +97,6 @@ ActiveRecord::Schema.define(version: 20160210093731) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "api_id",                 limit: 255
-=======
->>>>>>> f4feb1d16599e4c0cc26aaa8712bebfbde00ff25
   end
 
   add_index "question_groups", ["api_id"], name: "uq_question_groups_api_id", unique: true, using: :btree
@@ -196,8 +193,9 @@ ActiveRecord::Schema.define(version: 20160210093731) do
   create_table "survey_responses", force: :cascade do |t|
     t.integer  "survey_id",  limit: 4
     t.integer  "user_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.time     "start_time",           default: '2000-01-01 00:00:00'
   end
 
   create_table "survey_sections", force: :cascade do |t|
@@ -236,13 +234,14 @@ ActiveRecord::Schema.define(version: 20160210093731) do
   end
 
   create_table "surveys", force: :cascade do |t|
-    t.string   "title",              limit: 255
-    t.string   "description",        limit: 255
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.integer  "user_id",            limit: 4
-    t.string   "key",                limit: 255
-    t.integer  "participants_count", limit: 4,   default: 0
+    t.string   "title",               limit: 255
+    t.text     "description",         limit: 65535
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.integer  "user_id",             limit: 4
+    t.string   "key",                 limit: 255
+    t.integer  "participants_count",  limit: 4,     default: 0
+    t.integer  "maximum_participant", limit: 4,     default: 20
   end
 
   add_index "surveys", ["user_id"], name: "index_surveys_on_user_id", using: :btree

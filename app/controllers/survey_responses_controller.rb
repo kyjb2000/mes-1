@@ -4,13 +4,16 @@ class SurveyResponsesController < ApplicationController
   before_action :find_survey, only: [ :new, :create ]
 
   def new
-    @survey_response = SurveyResponse.new(survey: @survey)
+       @survey_response = SurveyResponse.new(survey: @survey)
+       if @survey.participants_count > @survey.maximum_participant
+         redirect_to surveys_path, notice: 'Sorry, we have reached the maximum number of allowed particiants'
+       end
   end
 
   def create
     @survey_response = SurveyResponse.new(survey_response_params)
     if @survey_response.save
-      redirect_to browse_surveys_path, notice: 'Thank you for participating'
+      redirect_to surveys_path, notice: 'Thank you for participating'
     else
       render 'new'
     end

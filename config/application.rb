@@ -25,5 +25,6 @@ module Mes
     config.assets.enabled = true
 
     config.assets.paths << Rails.root.join("vendor", "theme")
+    config.assets.paths << Rails.root.join("vendor", "home")
   end
 end

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @user = User.find current_user
+    @user = User.find current_user.id
   end
 
   def dashboard
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def edit
     if current_user.id != @user.id
       respond_to do |format|
-      format.html { redirect_to edit_user_path(id: current_user) }
+      format.html { redirect_to edit_user_path(id: current_user.id) }
     end
     else
     end
