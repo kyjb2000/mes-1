@@ -18,7 +18,7 @@
                         <a data-toggle="dropdown" class="tm-settings" href=""></a>
                         <ul class="dropdown-menu dm-icon pull-right">
                           <li>
-                            <%= link_to edit_user_registration_url do%>
+                            <%= link_to edit_user_path(current_user.id) do%>
                               <i class="zmdi zmdi-face"></i> My Profile
                             <%end%>
                           </li>
