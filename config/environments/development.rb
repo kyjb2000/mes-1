@@ -27,8 +27,8 @@ Rails.application.configure do
     :port => 587,
     :domain => "gmail.com",
     :authentication => 'plain',
-    :user_name => "moubachir03@gmail.com",
-    :password => ""
+    :user_name => "noreply.mesystem@gmail.com",
+    :password => "fortesting"
   }
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
   # Raise an error on page load if there are pending migrations.
