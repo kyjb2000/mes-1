@@ -31,8 +31,8 @@ gem 'formtastic'
 gem 'formtastic-bootstrap'
 
 gem 'ransack'
-gem 'will_paginate'
-gem 'will_paginate-bootstrap'
+#gem 'will_paginate'
+#gem 'will_paginate-bootstrap'
 
 gem "devise"
 
@@ -43,6 +43,7 @@ gem 'roo'
 gem 'daemons'
 gem 'delayed_job_active_record'
 
+gem 'activeadmin'
 
 #gem 'activeadmin', '~> 1.0.0.pre1'
 #gem 'activeadmin_settings_cached'
