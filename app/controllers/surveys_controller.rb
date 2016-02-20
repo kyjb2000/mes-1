@@ -21,7 +21,6 @@ class SurveysController < ApplicationController
 
     @q = Survey.ransack(params[:q])
     @survey_results = @q.result
-    puts'aaa', @survey_results.count
     if @survey_results.nil?
      redirect_to browse_surveys_path, notice: 'Survey not found!'
     end
@@ -29,11 +28,18 @@ class SurveysController < ApplicationController
 
   # GET /surveys/new
   def new
-    @survey = Survey.new
+    if current_user.is_active
+      @survey = Survey.new
+    else
+      redirect_to surveys_path, notice: 'You account has been blocked, Please contact the system admin'
+    end
   end
 
   # GET /surveys/1/edit
   def edit
+    if !current_user.is_active
+      redirect_to surveys_path, notice: 'You account has been blocked, Please contact the system admin'
+    end
   end
 
   # POST /surveys
