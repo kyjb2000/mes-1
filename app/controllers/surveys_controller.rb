@@ -11,18 +11,21 @@ class SurveysController < ApplicationController
   end
 
   def browse
-
-    if params[:q].present? and params[:q][:key_cont].present?
-      survey = Survey.where(key: params[:q][:key_cont]).first
-      if survey.present?
-        redirect_to new_survey_survey_response_path(survey) and return
+    if current_user.is_active
+      if params[:q].present? and params[:q][:key_cont].present?
+        survey = Survey.where(key: params[:q][:key_cont]).first
+        if survey.present?
+          redirect_to new_survey_survey_response_path(survey) #and returns
+        else
+          redirect_to browse_surveys_path, notice: 'Survey not found!'
+        end
       end
-    end
 
-    @q = Survey.ransack(params[:q])
-    @survey_results = @q.result
-    if @survey_results.nil?
-     redirect_to browse_surveys_path, notice: 'Survey not found!'
+      @q = Survey.ransack(params[:q])
+      @survey_results = @q.result
+
+    else
+      redirect_to surveys_path, notice: 'You account has been blocked, Please contact the system admin'
     end
   end
 
