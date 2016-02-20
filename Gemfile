@@ -17,6 +17,7 @@ gem 'sprockets'
 
 gem 'mysql2', '~> 0.3.18'
 gem 'pg'
+gem 'rails_12factor'
 
 
 gem 'twitter-bootstrap-rails'
