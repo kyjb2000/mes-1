@@ -70,24 +70,7 @@ Rails.application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
-
-  # Print deprecation notices to the Rails logger.
-  config.active_support.deprecation = :log
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    #:enable_starttls_auto => true,
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :domain => "gmail.com",
-    :authentication => 'plain',
-    :user_name => "noreply.mesystem@gmail.com",
-    :password => "fortesting"
-  }
-  config.action_mailer.perform_deliveries = true 
-  config.action_mailer.default_url_options = { :host => "mesystem.herokuapp.com" }
+  
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 

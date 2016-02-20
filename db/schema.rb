@@ -54,13 +54,6 @@ ActiveRecord::Schema.define(version: 20160220061820) do
     t.integer  "survey_response_id", limit: 4
   end
 
-  create_table "attachments", force: :cascade do |t|
-    t.string   "video",      limit: 255
-    t.string   "image",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id",   limit: 4
     t.string   "bootsy_resource_type", limit: 255
