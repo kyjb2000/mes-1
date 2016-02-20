@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  has_many :surveys
+  has_many :surveys, :dependent => :destroy
 end
