@@ -16,7 +16,7 @@ gem 'sprockets'
 #gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'mysql2', '~> 0.3.18'
-
+gem 'pg'
 
 
 gem 'twitter-bootstrap-rails'
