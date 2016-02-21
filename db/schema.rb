@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220061820) do
+ActiveRecord::Schema.define(version: 20160221133159) do
 
 <<<<<<< HEAD
 =======
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20160220061820) do
     t.string   "key",                 limit: 255
     t.integer  "participants_count",  limit: 4,     default: 0
     t.integer  "maximum_participant", limit: 4,     default: 20
+    t.integer  "duration",            limit: 4,     default: 20
   end
 
   create_table "users", force: :cascade do |t|

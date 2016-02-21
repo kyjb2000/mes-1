@@ -12,11 +12,13 @@
                     <a href="/"><%= content_for?(:title) ? yield(:title) : "Mes" %></a>
                 </li>
 
+
                 <li class="pull-right">
                 <ul class="top-menu">
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="tm-settings" href=""></a>
                         <ul class="dropdown-menu dm-icon pull-right">
+                          <li></li>
                           <li>
 
                             <%= link_to edit_user_path(current_user.id) do%>
@@ -32,10 +34,14 @@
                         </ul>
                     </li>
                   </ul>
-
+                  <li class="pull-right" id="sticker" style="padding-right: 60px">
+                       <h3 id="time" style="color: white"></h3>
+                  </li>
             <!-- Top Search Content -->
             <div id="top-search-wrap">
                 <input type="text">
                 <i id="top-search-close">×</i>
             </div>
-        </li></ul></header>
+        </li>
+      </ul>
+    </header>

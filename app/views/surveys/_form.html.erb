@@ -15,13 +15,23 @@
      <%= f.text_area :description, placeholder:'Description', class: 'form-control', :size => "100x5" %>
    </div>
  </div>
- <div class="form-group">
-   <div class="fg-line">
-     <label for="">Max allowed participant</label>
-     <%= f.number_field :maximum_participant, placeholder:'Description', class: 'form-control', :size => "100x5" %>
-   </div>
- </div>
+<div class="col-md-6">
+  <div class="form-group">
+    <div class="fg-line">
+      <label for="">Max allowed participant</label>
+      <%= f.number_field :maximum_participant, placeholder:'Description', class: 'form-control', :size => "100x5" %>
+    </div>
+  </div>
+</div>
 
+<div class="col-md-6">
+  <div class="form-group">
+    <div class="fg-line">
+      <label for="">Duration in Minutes</label>
+      <%= f.number_field :duration, placeholder:'Evaluation time', class: 'form-control', :size => "100x5" %>
+    </div>
+  </div>
+</div>
  <div class="field">
    <ul>
      <%= f.fields_for :questions do |builder| %>

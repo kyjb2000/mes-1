@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  
+
   ActiveAdmin.routes(self)
   resources :answers
-  resources :attempts
   devise_for :users, controllers: {registrations: 'registrations'}
 
   authenticated :user do
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/dashboard", to: "users#dashboard"
+
   resources :users
   resources :surveys do
     resources :survey_responses, only: [ :new, :create ]
