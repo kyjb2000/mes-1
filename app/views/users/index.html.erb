@@ -20,7 +20,7 @@
         </a>
         <%= render partial: 'avatar' %>
         <% if @user.avatar.blank? %>
-           <%= image_tag('user.jpg', :class => 'img-responsive img-rounded md-margin-bottom-10') %>
+           <%= image_tag('user.png', :class => 'img-responsive img-rounded md-margin-bottom-10') %>
          <%else%>
            <%= image_tag(@user.avatar) %>
          <%end%>
@@ -64,29 +64,12 @@
                     <dd><%= current_user.gender %></dd>
                 </dl>
                 <dl class="dl-horizontal">
-                    <dt>Birthday</dt>
-                    <dd><%= current_user.birth_date %></dd>
+                    <dt>Birth Date</dt>
+                    <dd><%= current_user.birth_date.strftime("%d %B %Y ") %></dd>
                 </dl>
                 <dl class="dl-horizontal">
                     <dt>Martial Status</dt>
                     <dd><%= current_user.martial_status %></dd>
-                </dl>
-            </div>
-        </div>
-    </div>
-    <div class="pmb-block">
-        <div class="pmbb-header">
-            <h2><i class="zmdi zmdi-phone m-r-5"></i> Contact Information</h2>
-        </div>
-        <div class="pmbb-body p-l-30">
-            <div class="pmbb-view" data-ng-if="pctrl.editContact === 0">
-                <dl class="dl-horizontal">
-                    <dt>Mobile Phone</dt>
-                    <dd><%= current_user.phone_number %></dd>
-                </dl>
-                <dl class="dl-horizontal">
-                    <dt>Email Address</dt>
-                    <dd><%= current_user.email %></dd>
                 </dl>
             </div>
         </div>

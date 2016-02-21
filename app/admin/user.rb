@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  
+
 permit_params :email, :name, :is_active
 
 actions :all, :except => [:new]
@@ -14,6 +14,7 @@ index do
   column :name
   column :is_active
   column :created_at
+  column :confirmed_at
   actions
 end
 

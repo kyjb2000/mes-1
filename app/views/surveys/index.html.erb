@@ -16,10 +16,10 @@
     <div class="lv-header-alt clearfix">
       <h2 class="lvh-label hidden-xs">Surveys</h2>
       <div class="lvh-search" style="display: none;">
-        <%#= search_form_for @surveys do |f|%>
-          <%#= f.text_field :name, placeholder: "Search", class: "lvhs-input"%>
+        <%= search_form_for @surveys_search do |f|%>
+          <%= f.text_field :title, placeholder: "Search", class: "lvhs-input"%>
           <i class="lvh-search-close">×</i>
-        <%#end%>
+        <%end%>
       </div>
       <div class="pull-right">
         <%= link_to 'New Survey', new_survey_path, class: 'btn btn-primary' %>
@@ -41,7 +41,6 @@
             <div class="lv-item media list">
               <div class="col-md-8" style="padding-left: 0px">
                 <strong><%= link_to survey.title, edit_survey_path(survey), style: 'color: #4285F4' %></strong> <br>
-
                 <strong>Key: <%= survey.key %></strong>
               </div>
 
@@ -49,10 +48,10 @@
                 <strong><%= link_to "View Report", report_survey_path(survey) , style: 'color: #4285F4'%></strong>
               </div>
               <div class="lv-actions actions" id="button">
-              <%= link_to survey, method: :delete, data: { confirm: 'Are you sure?' } do%>
-                <i class="zmdi zmdi-delete zmdi-hc-fw"></i>
-              <% end %>
-            </div>
+                <%= link_to survey, method: :delete, data: { confirm: 'Are you sure?' } do%>
+                  <i class="zmdi zmdi-delete zmdi-hc-fw"></i>
+                <% end %>
+              </div>
             </div>
           </div>
         <% end -%>
@@ -60,7 +59,6 @@
       <div style="padding-left: 200px; padding-bottom: 20px; padding-top: 20px">
         <h3><%= link_to 'Create a new survey', new_survey_path %></h3>
       </div>
-    <% end %>
-
+   <% end %>
     </div>
 </div>

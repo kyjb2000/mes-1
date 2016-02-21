@@ -1,47 +1,49 @@
 <header id="header">
-            <ul class="header-inner">
-                <li id="menu-trigger" data-trigger="#sidebar">
-                    <div class="line-wrap">
-                        <div class="line top"></div>
-                        <div class="line center"></div>
-                        <div class="line bottom"></div>
-                    </div>
+  <ul class="header-inner">
+      <li id="menu-trigger" data-trigger="#sidebar">
+          <div class="line-wrap">
+              <div class="line top"></div>
+              <div class="line center"></div>
+              <div class="line bottom"></div>
+          </div>
+      </li>
+
+      <li class="logo hidden-xs">
+          <a href="/"><%= content_for?(:title) ? yield(:title) : "Mes" %></a>
+      </li>
+
+
+      <li class="pull-right">
+      <ul class="top-menu">
+          <li class="dropdown">
+              <a data-toggle="dropdown" class="tm-settings" href=""></a>
+              <ul class="dropdown-menu dm-icon pull-right">
+                <li></li>
+                <li>
+
+                  <%= link_to edit_user_path(current_user.id) do%>
+
+                    <i class="zmdi zmdi-face"></i> My Profile
+                  <%end%>
                 </li>
-
-                <li class="logo hidden-xs">
-                    <a href="/"><%= content_for?(:title) ? yield(:title) : "Mes" %></a>
+                <li>
+                  <%= link_to destroy_user_session_path, :method => :delete do %>
+                  <i class="zmdi zmdi-open-in-new"></i> Log out
+                  <%end%>
                 </li>
-
-
-                <li class="pull-right">
-                <ul class="top-menu">
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="tm-settings" href=""></a>
-                        <ul class="dropdown-menu dm-icon pull-right">
-                          <li></li>
-                          <li>
-
-                            <%= link_to edit_user_path(current_user.id) do%>
-
-                              <i class="zmdi zmdi-face"></i> My Profile
-                            <%end%>
-                          </li>
-                          <li>
-                            <%= link_to destroy_user_session_path, :method => :delete do %>
-                            <i class="zmdi zmdi-open-in-new"></i> Log out
-                            <%end%>
-                          </li>
-                        </ul>
-                    </li>
-                  </ul>
-                  <li class="pull-right" id="sticker" style="padding-right: 60px">
-                       <h3 id="time" style="color: white"></h3>
-                  </li>
-            <!-- Top Search Content -->
-            <div id="top-search-wrap">
-                <input type="text">
-                <i id="top-search-close">×</i>
-            </div>
+              </ul>
+          </li>
+        </ul>
+        <li class="pull-right" id="sticker" style="padding-right: 60px">
+          <% if controller.controller_name == "survey_responses" and controller.action_name == "new"%>
+          <h4 style="color: white">This page will close in: <b><span id="time" ></span><b></h4>
+            <%end%>
         </li>
-      </ul>
-    </header>
+        <!-- Top Search Content -->
+        <div id="top-search-wrap">
+            <input type="text">
+            <i id="top-search-close">×</i>
+        </div>
+      </li>
+  </ul>
+</header>

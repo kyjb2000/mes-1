@@ -20,15 +20,12 @@
     <div class="pm-overview c-overflow">
       <div class="pmo-pic">
         <div class="p-relative">
-          <a type="Button" class="pmop-edit" data-toggle="modal" data-target="#myModal">
-            <i class="zmdi zmdi-camera"></i>
-            <span class="hidden-xs">Update Profile Picture</span>
-          </a>
-          <%#= render partial: 'avatar', :ff => f %>
+
           <% if @user.avatar.blank? %>
-             <%= image_tag('user.jpg', :class => 'img-responsive img-rounded md-margin-bottom-10') %>
+             <%= image_tag('user.png', :class => 'img-responsive img-rounded md-margin-bottom-10') %>
            <%else%>
-             <%= image_tag(@user.avatar) %>
+           <%= image_tag('user.png', :class => 'img-responsive img-rounded md-margin-bottom-10') %>
+             <%#= image_tag(@user.avatar) %>
            <%end%>
         </div>
       </div>

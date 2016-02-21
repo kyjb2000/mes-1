@@ -20,11 +20,9 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-<<<<<<< HEAD
-  config.action_mailer.perform_deliveries = false
-=======
+
   config.action_mailer.perform_deliveries = true
->>>>>>> active_admin
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
