@@ -28,7 +28,7 @@
       <% if @surveys.any? %>
         <% @surveys.each do |survey| %>
           <div class="lv-item media">
-            <div class="lv-item media list">
+            <div class="lv-item media list" style="padding-left: 0px">
               <div class="col-md-6" style="padding-left: 0px">
                 <h4><%=  survey.title %></h4>
                 <strong>Key: <%= survey.key %></strong>
