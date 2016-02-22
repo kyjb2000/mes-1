@@ -23,8 +23,28 @@ ActiveAdmin.register Survey do
     attributes_table do
       row :title
       row :description
-      row :Questions do |f|
-       f.questions.map{|x| x.name}.join(', ')
+
+      survey.questions.each_with_index do |question, index|
+        row "Question [#{index + 1}]"  do |f|
+         question.name
+        end
+
+        row :Options do |f|
+         question.options.map{|x| x.text}.join(', ')
+        end
+
+        if question.video.present?
+          row :Video do |f|
+           video_tag(question.video.url, controls: true, autobuffer: false, size: "320x240")
+          end
+        end
+
+        if question.image.present?
+          row :Image do |f|
+            image_tag(question.image.url, size: "320x240")
+          end
+        end
+        
       end
     end
   end

@@ -11,10 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221133159) do
+ActiveRecord::Schema.define(version: 20160222130213) do
 
-<<<<<<< HEAD
-=======
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
     t.text     "body",          limit: 65535
@@ -48,7 +46,6 @@ ActiveRecord::Schema.define(version: 20160221133159) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
->>>>>>> active_admin
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id",        limit: 4
     t.integer  "option_id",          limit: 4
@@ -91,7 +88,7 @@ ActiveRecord::Schema.define(version: 20160221133159) do
     t.string   "key",                 limit: 255
     t.integer  "participants_count",  limit: 4,     default: 0
     t.integer  "maximum_participant", limit: 4,     default: 20
-    t.integer  "duration",            limit: 4,     default: 20
+    t.integer  "duration",            limit: 4,     default: 5
   end
 
   create_table "users", force: :cascade do |t|
@@ -118,11 +115,8 @@ ActiveRecord::Schema.define(version: 20160221133159) do
     t.string   "phone_number",           limit: 255
     t.string   "avatar",                 limit: 255
     t.string   "description",            limit: 255
-<<<<<<< HEAD
-=======
     t.string   "user_type",              limit: 255
     t.boolean  "is_active",                          default: true
->>>>>>> active_admin
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

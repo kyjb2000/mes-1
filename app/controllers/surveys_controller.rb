@@ -4,8 +4,6 @@ class SurveysController < ApplicationController
   # GET /surveys
   def index
     @surveys = current_user.surveys
-    @surveys_search =   @surveys.ransack(params[:q])
-    @surveys_result =   @surveys_search.result(distinct: true)
     #@surveys_result = @surveys_search.result
   end
 

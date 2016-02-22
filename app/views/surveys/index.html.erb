@@ -16,10 +16,7 @@
     <div class="lv-header-alt clearfix">
       <h2 class="lvh-label hidden-xs">Surveys</h2>
       <div class="lvh-search" style="display: none;">
-        <%= search_form_for @surveys_search do |f|%>
-          <%= f.text_field :title, placeholder: "Search", class: "lvhs-input"%>
-          <i class="lvh-search-close">×</i>
-        <%end%>
+      
       </div>
       <div class="pull-right">
         <%= link_to 'New Survey', new_survey_path, class: 'btn btn-primary' %>

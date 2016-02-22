@@ -65,7 +65,11 @@
                 </dl>
                 <dl class="dl-horizontal">
                     <dt>Birth Date</dt>
-                    <dd><%= current_user.birth_date.strftime("%d %B %Y ") %></dd>
+                    <dd>
+                    <% if current_user.birth_date.present? %>
+                    <%= current_user.birth_date.strftime("%d %B %Y ") %></dd>
+                    <% end %>
+
                 </dl>
                 <dl class="dl-horizontal">
                     <dt>Martial Status</dt>

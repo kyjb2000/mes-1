@@ -4,7 +4,7 @@ class SurveyResponsesController < ApplicationController
   before_action :find_survey, only: [ :new, :create ]
 
   def new
-    if current_user.id == @survey.user_id
+    if current_user.id != @survey.user_id
      @survey_response = SurveyResponse.new(survey: @survey)
      if @survey.participants_count > @survey.maximum_participant
        redirect_to surveys_path, notice: 'Sorry, we have reached the maximum number of allowed particiants'

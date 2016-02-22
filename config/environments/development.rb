@@ -30,8 +30,8 @@ Rails.application.configure do
     :port => 587,
     :domain => 'mail.google.com',
     :authentication => 'plain',
-    :user_name => '',
-    :password => ''
+    :user_name => 'moubachir03@gmail.com',
+    :password => '#@pP1B@c#1r05'
   }
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
 

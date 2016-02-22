@@ -19,7 +19,7 @@
   <div class="form-group">
     <div class="fg-line">
       <label for="">Max allowed participant</label>
-      <%= f.number_field :maximum_participant, placeholder:'Description', class: 'form-control', :size => "100x5" %>
+      <%= f.number_field :maximum_participant, placeholder:'Description', min: '1', class: 'form-control', :size => "100x5" %>
     </div>
   </div>
 </div>
@@ -28,7 +28,7 @@
   <div class="form-group">
     <div class="fg-line">
       <label for="">Duration in Minutes</label>
-      <%= f.number_field :duration, placeholder:'Evaluation time', class: 'form-control', :size => "100x5" %>
+      <%= f.number_field :duration, placeholder:'Evaluation time', min: '1', class: 'form-control', :size => "100x5" %>
     </div>
   </div>
 </div>
