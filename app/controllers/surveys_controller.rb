@@ -4,7 +4,6 @@ class SurveysController < ApplicationController
   # GET /surveys
   def index
     @surveys = current_user.surveys
-    #@surveys_result = @surveys_search.result
   end
 
   # GET /surveys/1
