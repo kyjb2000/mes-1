@@ -31,7 +31,7 @@
                     <em>ESystem </em>is Malaysian startup company founded in February 2016  <br>
                     owned by an Multimedia University student. <br>
                     We are dedicated to change the way Multimedia evaluation is conducted'
-                    We believ in providing an easy to use tools witch can help our customers perform their tasks. <br>
+                    We believe in providing an easy to use tools witch can help our customers perform their tasks. <br>
                   </p>
                   <ul class="list-item">
                     <li><i class="zmdi zmdi-check"></i>Create unlimitted number of surveys</li>
@@ -40,6 +40,7 @@
                     <li><i class="zmdi zmdi-check"></i>Free and easy to use</li>
                     <li><i class="zmdi zmdi-check"></i>Limit the number of respondents</li>
                     <li><i class="zmdi zmdi-check"></i>Set duration for evaluation</li>
+                    <li><i class="zmdi zmdi-check"></i>Secured</li>
                   </ul>
                 </div>
                 <a href="#login" class="btn btn-lg btn-primary wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Sign Up</a>
@@ -52,6 +53,7 @@
           <div class='login-content'>
             <section id="content">
               <div class="container">
+                <%= render partial: 'shared/notices'%>
                 <%= content_for?(:content) ? yield(:content) : yield %>
               </div>
               <br>

@@ -1,23 +1,38 @@
 class SurveyResponsesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :find_survey, only: [ :new, :create ]
+  before_action :find_survey, only: [ :new, :create]
 
   def new
     if current_user.id != @survey.user_id
-     @survey_response = SurveyResponse.new(survey: @survey)
-     if @survey.participants_count > @survey.maximum_participant
-       redirect_to surveys_path, notice: 'Sorry, we have reached the maximum number of allowed particiants'
-     end
+      if !survey_attempt
+        @survey_response = SurveyResponse.new(survey: @survey)
+         if @survey.participants_count > @survey.maximum_participant
+           redirect_to surveys_path, notice: 'Sorry, we have reached the maximum number of allowed particiants
+           1'
+         end
+       else
+         redirect_to surveys_path, notice: 'Sorry, you have already evaluated this survey!'
+       end
     else
       redirect_to surveys_path, notice: 'Access Denied!'
     end
   end
 
+
+    def survey_attempt
+      @attempt = SurveyResponse.where(survey_id: @survey.id, user_id: current_user.id)
+      if @attempt.count > 0
+        return true
+      else
+        return false
+      end
+    end
+
   def create
     @survey_response = SurveyResponse.new(survey_response_params)
     if @survey_response.save
-      redirect_to surveys_path, notice: 'Thank you for participating'
+      redirect_to surveys_path, notice: 'Thank you for participating.'
     else
       render 'new'
     end
